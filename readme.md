@@ -1,9 +1,23 @@
-# Dove
+# Wreps
 
-An riot production ready setup
-(localhost:5678)
+`Webpack + Riot + ES2015 + PUG + SASS` = *Awesome Web :100:*
+
+An riot production ready setup for frontend
 
 # Configs
+
+# Setup
+
+- npm run dev
+- open [here](http://localhost:5678)
+
+# Possible Workflow
+
+- add `*.tag` files
+- developing
+- test
+- PR
+- done
 
 # Roadmaps
 
