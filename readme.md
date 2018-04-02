@@ -13,7 +13,7 @@ An riot production ready setup for frontend
 
 # Possible Workflow
 
-- add `*.tag` files
+- add `*.pug` files
 - developing
 - test
 - PR
@@ -25,10 +25,12 @@ An riot production ready setup for frontend
 - [x] pug
 - [x] speration of styles
     - css optimise
-- lint
-- test
-- release workflow
-- deploy workflow
+- [x] eslint
+- [x] pug-lint: due to this, `*.tag` should be renamed to `*.pug` to make it work ([this](https://github.com/surmind/eslint-plugin-pug/commit/c85ff3adb38a0b2b2eb4e2f514d18b642c3fc210))
+- [ ] convert `index.html` to `index.pug`
+- [ ] tests
+- [ ] release workflow
+- [ ] deploy workflow
 
 # Text editor
 

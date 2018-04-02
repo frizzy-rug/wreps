@@ -1,0 +1,7 @@
+card-list
+    p
+        | a
+    .tick(each='{ cards }')
+        | { name }
+    script.
+        this.cards = opts.cards

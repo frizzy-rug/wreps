@@ -1,1 +1,1 @@
-import './list.tag'
+import './list.pug'

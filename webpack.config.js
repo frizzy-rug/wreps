@@ -61,7 +61,7 @@ module.exports = (env, args) => ({
     devtool: isDev(args) ? 'inline-source-map' : false,
     module: {
         rules: [{
-            test: /\.tag$/,
+            test: /\.pug$/,
             exclude: /node_modules/,
             use: [{
                 loader: 'riot-tag-loader',
@@ -81,6 +81,19 @@ module.exports = (env, args) => ({
                 }
             }]
         }, {
+            test: /\.pug$/,
+            exclude: /node_modules/,
+            use: [{
+                loader: 'pug-lint-loader',
+                options: require('./.puglintrc.json'),
+            }, {
+                loader: 'eslint-loader',
+                options: {
+                    formatter: require("eslint-friendly-formatter")
+                }
+            }],
+            enforce: 'pre'
+        }, {
             test: /\.sass$/,
             exclude: /node_modules/,
             use: [
@@ -95,6 +108,11 @@ module.exports = (env, args) => ({
                 options: {
                     babelrc: false,
                     presets: ["es2015-riot"]
+                }
+            }, {
+                loader: 'eslint-loader',
+                options: {
+                    formatter: require("eslint-friendly-formatter")
                 }
             }]
         }]
