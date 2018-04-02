@@ -23,7 +23,7 @@ An riot production ready setup for frontend
 
 - [x] npm build/dev scripts
 - [x] pug
-- speration of styles
+- [x] speration of styles
     - css optimise
 - lint
 - test

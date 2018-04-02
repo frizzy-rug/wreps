@@ -1,6 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 function isDev({
     mode
@@ -13,6 +14,7 @@ function envPlugins(o) {
     if (dev) {
         htmlOpts = {
             minify: false,
+            chunks: ['app'],
             template: 'index.html'
         }
     } else {
@@ -29,18 +31,29 @@ function envPlugins(o) {
         new HtmlWebpackPlugin(htmlOpts),
         new webpack.DefinePlugin({
             "DEV": JSON.stringify(dev)
+        }),
+        new MiniCssExtractPlugin({
+            filename: '[id].css'
         })
-    ]
+    ];
+};
+
+function entries(list) {
+    let obj = {};
+    list.forEach(k => {
+        obj[k] = ['js', 'sass'].map((ext) => `./${k}/index.${ext}`)
+    });
+    return obj;
 }
 
 module.exports = (env, args) => ({
-    entry: './index.js',
+    entry: entries(['app']),
     output: {
         hashDigest: 'hex',
         hashDigestLength: 8,
         path: path.resolve(__dirname, 'dist'),
         publicPath: '/',
-        filename: 'bundle.js'
+        filename: '[id].js'
     },
     plugins: [
         ...envPlugins(args)
@@ -67,6 +80,13 @@ module.exports = (env, args) => ({
                     hot: isDev(args)
                 }
             }]
+        }, {
+            test: /\.sass$/,
+            exclude: /node_modules/,
+            use: [
+                MiniCssExtractPlugin.loader,
+                'css-loader', 'sass-loader'
+            ]
         }, {
             test: /\.js$/,
             exclude: /node_modules/,

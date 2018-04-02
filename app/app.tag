@@ -15,6 +15,3 @@ app
             tag.cnt = tag.cnt + 1;
             tag.update();
         }, 1000);
-    style.
-        \:scope > .tick
-            color: green
