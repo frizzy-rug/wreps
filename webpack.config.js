@@ -2,7 +2,9 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-function isDev({ mode }) {
+function isDev({
+    mode
+}) {
     return mode === 'development'
 }
 
@@ -47,7 +49,17 @@ module.exports = (env, args) => ({
                 loader: 'riot-tag-loader',
                 query: {
                     type: 'es6', // transpile the riot tags using babel
-                    hot: true
+                    template: 'pug',
+                    style: 'sass',
+                    parsers: {
+                        html: {
+                            pug: (html, opts, url) => require('pug').compile(html),
+                        },
+                        css: {
+                            sass: (tagName, css, opts, url) => require('node-sass').compile(css),
+                        },
+                    },
+                    hot: isDev(args)
                 }
             }]
         }, {

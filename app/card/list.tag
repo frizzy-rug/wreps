@@ -1,12 +1,8 @@
-<card-list>
-    <div each={ cards } class='tick'> { name } </div>
-
-    <script>
+card-list
+    p a
+    div.tick(each='{ cards }') { name }
+    script.
         this.cards = opts.cards
-    </script>
-    <style>
-        :scope .tick {
-            background: pink;
-        }
-    </style>
-</card-list>
+    style.
+        \:scope .tick
+            background: pink
