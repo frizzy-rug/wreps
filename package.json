@@ -10,7 +10,10 @@
     "node": ">=8.0.0"
   },
   "scripts": {
+    "cleanup": "rm -rf dist",
+    "build:app": "webpack --config webpack.config.js",
     "serve": "webpack-dev-server --inline --watch --hot --colors -d",
+    "build": "npm run cleanup; npm run build:app",
     "dev": "npm run serve -- --port 5678"
   },
   "dependencies": {
@@ -19,8 +22,9 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.3",
-    "babel-plugin-transform-decorators-legacy": "^1.3.4",
-    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-es2015-riot": "^1.1.0",
+    "html-minifier": "^3.5.13",
+    "html-webpack-plugin": "^3.1.0",
     "riot-hot-reload": "1.0.0",
     "riot-tag-loader": "^2.0.2",
     "webpack": "^4.1.0",
