@@ -25,7 +25,12 @@ function envPlugins(o) {
             template: 'index.html'
         }
     }
-    return [new HtmlWebpackPlugin(htmlOpts)]
+    return [
+        new HtmlWebpackPlugin(htmlOpts),
+        new webpack.DefinePlugin({
+            "DEV": JSON.stringify(dev)
+        })
+    ]
 }
 
 module.exports = (env, args) => ({

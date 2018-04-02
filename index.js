@@ -1,5 +1,7 @@
 import riot from 'riot'
-import 'riot-hot-reload'
+if (DEV) {
+    require('riot-hot-reload')
+}
 import './app'
 
 riot.mount('app');
