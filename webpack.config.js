@@ -2,7 +2,31 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-module.exports = {
+function isDev({ mode }) {
+    return mode === 'development'
+}
+
+function envPlugins(o) {
+    let dev = isDev(o)
+    if (dev) {
+        htmlOpts = {
+            minify: false,
+            template: 'index.html'
+        }
+    } else {
+        htmlOpts = {
+            hash: true,
+            minify: {
+                removeComments: true,
+                collapseWhitespace: true
+            },
+            template: 'index.html'
+        }
+    }
+    return [new HtmlWebpackPlugin(htmlOpts)]
+}
+
+module.exports = (env, args) => ({
     entry: './index.js',
     output: {
         hashDigest: 'hex',
@@ -12,16 +36,9 @@ module.exports = {
         filename: 'bundle.js'
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            hash: true,
-            minify: {
-                removeComments: true,
-                collapseWhitespace: true
-            },
-            template: 'index.html'
-        })
+        ...envPlugins(args)
     ],
-    // devtool: 'inline-source-map',
+    devtool: isDev(args) ? 'inline-source-map' : false,
     module: {
         rules: [{
             test: /\.tag$/,
@@ -45,4 +62,4 @@ module.exports = {
             }]
         }]
     }
-}
+})
