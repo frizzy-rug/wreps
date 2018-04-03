@@ -27,7 +27,7 @@ An riot production ready setup for frontend
     - css optimise
 - [x] eslint
 - [x] pug-lint: due to this, `*.tag` should be renamed to `*.pug` to make it work ([this](https://github.com/surmind/eslint-plugin-pug/commit/c85ff3adb38a0b2b2eb4e2f514d18b642c3fc210))
-- [ ] convert `index.html` to `index.pug`
+- [x] convert `index.html` to `index.pug`
 - [ ] tests
 - [ ] release workflow
 - [ ] deploy workflow

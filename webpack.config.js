@@ -15,7 +15,7 @@ function envPlugins(o) {
         htmlOpts = {
             minify: false,
             chunks: ['app'],
-            template: 'index.html'
+            template: '!!pug-loader!index.pug'
         }
     } else {
         htmlOpts = {
@@ -24,17 +24,17 @@ function envPlugins(o) {
                 removeComments: true,
                 collapseWhitespace: true
             },
-            template: 'index.html'
+            template: '!!pug-loader!index.pug'
         }
     }
     return [
-        new HtmlWebpackPlugin(htmlOpts),
         new webpack.DefinePlugin({
             "DEV": JSON.stringify(dev)
         }),
         new MiniCssExtractPlugin({
             filename: '[id].css'
-        })
+        }),
+        new HtmlWebpackPlugin(htmlOpts)
     ];
 };
 
@@ -62,7 +62,7 @@ module.exports = (env, args) => ({
     module: {
         rules: [{
             test: /\.pug$/,
-            exclude: /node_modules/,
+            exclude: /node_modules|^index\.pug/,
             use: [{
                 loader: 'riot-tag-loader',
                 query: {
