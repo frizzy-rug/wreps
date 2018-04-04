@@ -2,7 +2,7 @@
   "name": "@frizzy-rug/rew",
   "version": "0.0.1",
   "description": "A place with peace comes from",
-  "repository": "owlstanding-labs/dove",
+  "repository": "@frizzy-rug/wreps",
   "main": "app/main.js",
   "author": "Speed-of-light",
   "license": "MIT",
@@ -11,6 +11,7 @@
   },
   "scripts": {
     "cleanup": "rm -rf dist",
+    "test": "karma start",
     "build:app": "webpack -p --config webpack.config.js",
     "serve": "webpack-dev-server --inline --watch --hot --colors -d",
     "build": "npm run cleanup; npm run build:app",
