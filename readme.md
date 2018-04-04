@@ -29,8 +29,23 @@ An riot production ready setup for frontend
 - [x] pug-lint: due to this, `*.tag` should be renamed to `*.pug` to make it work ([this](https://github.com/surmind/eslint-plugin-pug/commit/c85ff3adb38a0b2b2eb4e2f514d18b642c3fc210))
 - [x] convert `index.html` to `index.pug`
 - [x] basic tests
-- [ ] release workflow
-- [ ] deploy workflow
+- generator
+
+# :construction: Workflows
+
+:construction:
+this section is not implemented yet.
+:construction:
+
+## Development
+    - propose and work on new features/bug fixes
+    - `npm run dev`
+    - `npm run lint; npm run test`
+    - `npm run build`
+    - `npm run ci-build` (before release)
+
+## Deployment
+    - `npm run cd-build` (before release)
 
 # Text editor
 
