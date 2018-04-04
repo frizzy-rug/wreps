@@ -1,6 +1,6 @@
 {
-  "name": "@frizzy-rug/rew",
-  "version": "0.0.1",
+  "name": "@frizzy-rug/wreps",
+  "version": "1.0.0",
   "description": "A place with peace comes from",
   "repository": "@frizzy-rug/wreps",
   "main": "app/main.js",
