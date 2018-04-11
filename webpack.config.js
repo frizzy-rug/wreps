@@ -14,7 +14,7 @@ function envPlugins(o) {
     if (dev) {
         htmlOpts = {
             minify: false,
-            chunks: ['app'],
+            chunks: ['app', 'vendors'],
             template: '!!pug-loader!index.pug'
         }
     } else {
@@ -54,6 +54,17 @@ module.exports = (env, args) => ({
         path: path.resolve(__dirname, 'dist'),
         publicPath: '/',
         filename: '[id].js'
+    },
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                commons: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendors',
+                    chunks: 'all'
+                }
+            }
+        }
     },
     plugins: [
         ...envPlugins(args)
