@@ -14,17 +14,18 @@ module.exports = function(config) {
                 pattern: 'test/**/*.js'
                     // watched: false
             },
-            'app/**/*.pug',
-            'app/**/*.spec.js'
+            'app/**/*.js',
+            'app/**/*.pug'
         ],
         exclude: [
+            'app/index.*',
             'app/**/*.sass'
         ],
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
             'app/**/*.pug': ['riot', 'babel'],
-            'app/**/*.spec.js': ['babel'],
+            'app/**/*.js': ['babel'],
             'test/**/*.js': ['babel'],
         },
         riotPreprocessor: {
@@ -51,10 +52,10 @@ module.exports = function(config) {
                 sourceMap: 'inline'
             },
             filename: function(file) {
-                return file.originalPath.replace(/\.js$/, '-es5.js');
+                return file.originalPath;
             },
             sourceFileName: function(file) {
-                return file.originalPath;
+                return file.originalPath.replace(/\.js$/, '-map.js');
             }
         },
         // test results reporter to use

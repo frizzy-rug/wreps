@@ -15,7 +15,7 @@
     "build:app": "webpack -p --config webpack.config.js",
     "serve": "webpack-dev-server --inline --watch --hot --colors -d",
     "build": "npm run cleanup; npm run build:app",
-    "dev": "npm run serve -- --port 5678"
+    "dev": "npm run serve -- --port 9000"
   },
   "dependencies": {
     "riot": "^3.9.1"

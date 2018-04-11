@@ -1,4 +1,5 @@
-import { injectHTML } from '../test/helper-es5'
+import { expect } from 'chai'
+import { injectHTML } from '../test/helper'
 import './app.pug'
 
 describe('<app></app>', function() {
