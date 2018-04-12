@@ -1,7 +1,8 @@
 card-list
-    p
+    p(class='{ css.title }')
         | a
-    .tick(each='{ cards }')
+    div(class='{ css.text }' each='{ cards }')
         | { name }
     script.
-        this.cards = opts.cards
+        import { CardList } from './list'
+        new CardList(this, opts)

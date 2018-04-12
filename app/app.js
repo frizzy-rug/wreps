@@ -1,5 +1,9 @@
-export class App {
+import { Tag } from '../lib'
+import { style } from './app.style'
+
+export class App extends Tag {
     constructor(tag) {
+        super(tag, style)
         tag.cnt = 0
         tag.cards = [
             { name: 'a', url: 'aaa', views: 123 },

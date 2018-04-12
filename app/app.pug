@@ -1,9 +1,11 @@
 app
-    h1
+    h1(class='{ css.title }')
         | Visit
     card-list(cards='{ cards }')
-    .tick
+    div(class='{ css.tick }')
         | a-ab { cnt }
+        span(class='{ css.boom }')
+            | boom
     script.
         import './card'
         import { App } from './app'

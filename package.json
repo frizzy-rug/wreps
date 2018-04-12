@@ -44,6 +44,7 @@
     "mini-css-extract-plugin": "^0.4.0",
     "mocha": "^5.0.5",
     "node-sass": "^4.8.3",
+    "normalize.css": "^8.0.0",
     "pug": "^2.0.3",
     "pug-lint": "^2.5.0",
     "pug-lint-loader": "0.0.4",
@@ -52,6 +53,7 @@
     "riot-hot-reload": "1.0.0",
     "riot-tag-loader": "^2.0.2",
     "sass-loader": "^6.0.7",
+    "styletron-engine-atomic": "^1.0.4",
     "webpack": "^4.1.0",
     "webpack-cli": "^2.0.10",
     "webpack-dev-server": "^3.1.0"
