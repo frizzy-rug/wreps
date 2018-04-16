@@ -1,5 +1,5 @@
 import { Tag } from '../../lib'
-import { styles } from './list.style'
+import styles from './list.sass'
 
 export class CardList extends Tag {
     constructor(tag, { cards }) {

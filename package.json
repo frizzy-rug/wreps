@@ -27,6 +27,7 @@
     "babel-preset-es2015-riot": "^1.1.0",
     "chai": "^4.1.2",
     "css-loader": "^0.28.11",
+    "css-object-loader": "0.0.7",
     "eslint": "^4.19.1",
     "eslint-config-riot": "^1.0.0",
     "eslint-friendly-formatter": "^4.0.0",

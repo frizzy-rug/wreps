@@ -105,11 +105,17 @@ module.exports = (env, args) => ({
             }],
             enforce: 'pre'
         }, {
-            test: /\.sass$/,
+            test: /app\/index\.sass$/,
             exclude: /node_modules/,
             use: [
                 MiniCssExtractPlugin.loader,
                 'css-loader', 'sass-loader'
+            ]
+        }, {
+            test: /\.sass$/,
+            exclude: /node_modules|app\/index\.sass$/,
+            use: [
+                'css-object-loader', 'sass-loader'
             ]
         }, {
             test: /\.js$/,

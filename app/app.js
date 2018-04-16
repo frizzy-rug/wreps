@@ -1,5 +1,5 @@
 import { Tag } from '../lib'
-import { style } from './app.style'
+import style from './app.sass'
 
 export class App extends Tag {
     constructor(tag) {
